@@ -1,0 +1,39 @@
+<h1>Surveys#new</h1>
+<p>At this moment, I am looking for:</p>
+
+<%=form_for Survey.new do |f| %>
+<p>At this moment, I am looking for:</p>
+<br>
+<br>
+<%=f.label(:answer_id, "Friendship") %>
+<%=f.radio.button(:answer_id, "Friendship") %>
+<br>
+<%=f.label(:answer_id, "Hook-Up Only") %>
+<%=f.radio.button(:answer_id, "Hook-Up Only") %>
+<br>
+<%=f.label(:answer_id, "Casual Dating") %>
+<%=f.radio.button(:answer_id, "Casual Dating") %>
+<br>
+<%=f.label(:answer_id, "Exclusive Relationship") %>
+<%=f.radio.button(:answer_id, "Exclusive Relationship") %>
+<br>
+<br>
+
+<p>With *|FNAME|*, I am looking for:</p>
+<br>
+<br> 
+<%=f.label(:answer_id, "Friendship") %>
+<%=f.radio.button(:answer_id, "Friendship") %>
+<br>
+<%=f.label(:answer_id, "Hook-Up Only") %>
+<%=f.radio.button(:answer_id, "Hook-Up Only") %>
+<br>
+<%=f.label(:answer_id, "Casual Dating") %>
+<%=f.radio.button(:answer_id, "Casual Dating") %>
+<br>
+<%=f.label(:answer_id, "Exclusive Relationship") %>
+<%=f.radio.button(:answer_id, "Exclusive Relationship") %>
+<br>
+<br>
+<%=f.submit "Submit" %>
+<% end %>

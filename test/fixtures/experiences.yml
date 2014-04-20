@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  datee_id: 1
+  friendly_id: 1
+  post_exp_id: 1
+  recent_exp_od: 1
+  upcoming_exp_id: 1
+  date: 2014-04-19 21:26:14
+  location: MyString
+  description: MyText
+
+two:
+  user_id: 1
+  datee_id: 1
+  friendly_id: 1
+  post_exp_id: 1
+  recent_exp_od: 1
+  upcoming_exp_id: 1
+  date: 2014-04-19 21:26:14
+  location: MyString
+  description: MyText

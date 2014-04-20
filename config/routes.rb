@@ -1,4 +1,18 @@
 Datetrack::Application.routes.draw do
+
+resources :users do 
+  resources :datees
+  resources :experiences do
+    resources :surveys
+  end
+end
+ 
+get '/' => 'home#index'
+
+get "/log-in" => 'sessions#new'
+post "/log-in" => 'sessions#create', as: :log_in
+get "/log-out" => 'sessions#destroy', as: :log_out
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
