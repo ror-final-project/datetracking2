@@ -16,7 +16,7 @@ class ExperiencesController < ApplicationController
     @experience.user = current_user
     if @experience.save
       flash[:notice] = "Your date has been saved."
-      redirect_to experience_path(@experience)
+      redirect_to experiences_path(@experience)
     else
       flash[:alert] = "Your date was unable to be saved."
       redirect_to :back
@@ -45,7 +45,7 @@ class ExperiencesController < ApplicationController
 
   private
 
-  def topic_params
+  def experience_params
     params.require(:experience).permit(:date, :location, :description)
   end
 end

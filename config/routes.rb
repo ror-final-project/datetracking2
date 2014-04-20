@@ -2,9 +2,10 @@ Datetrack::Application.routes.draw do
 
 resources :users do 
   resources :datees
-  resources :experiences do
-    resources :surveys
-  end
+end
+
+resources :experiences do
+  resources :surveys
 end
  
 get '/' => 'home#index'
