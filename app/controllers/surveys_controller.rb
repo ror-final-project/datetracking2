@@ -30,7 +30,7 @@ class SurveysController < ApplicationController
 		params.require(:survey).permit(:answer, :answer_id)
 	end
 
-	## do not want to give others ability to edit/delete orig post
+	## do not want to give others ability to edit/delete orig survey
 	#def edit
 	#	@survey = Survey.find(params[:id])
 
