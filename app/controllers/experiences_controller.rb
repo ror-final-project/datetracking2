@@ -29,7 +29,13 @@ class ExperiencesController < ApplicationController
   end
 
   def update
-    
+    @experience = Experience.find(params[:id])
+    if @experience && @experience.update_attributes(experience_params)
+      flash[:notice] = "You experience has been updated!"
+    else
+      flash[:alert] = "There was an issue updating your experience."
+    end
+    redirect_to experience_path(@experience)
   end
 
   def destroy
