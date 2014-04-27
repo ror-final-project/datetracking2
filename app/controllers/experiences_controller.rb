@@ -1,6 +1,6 @@
 class ExperiencesController < ApplicationController
   def index
-    @experiences = Experience.all
+    @experiences = current_user.experiences
   end
 
   def show
@@ -18,7 +18,7 @@ class ExperiencesController < ApplicationController
     if @user
       @experience.datee_id = @user.id
       @experience.fname = @user.fname
-      @experience.user_id = current_user
+      @experience.user_id = current_user.id
       #if a user is found, assign them to that experience, flash notice
       #to inform of success,
       #redirect.
@@ -65,6 +65,6 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:date, :location, :description)
+    params.require(:experience).permit(:email, :fname, :date, :location, :description)
   end
 end
