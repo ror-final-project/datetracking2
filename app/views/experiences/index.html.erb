@@ -1,10 +1,10 @@
 <h1>Your recent dates...</h1>
 
 <% @experiences.each do |experience| %>
-	
-	Who: <%=experience.datee_id %> 
+
+	Who: <%=experience.fname %> 
 	<br>
-	When: <%=experience.date %>
+	When: <%=experience.date.strftime("%b, %d, %Y") %>
 	<br>
 	Where: <%=experience.location %> 
 	<br>
@@ -14,5 +14,7 @@
 	<br>
 	<br>
 <% end %>
+
+
 
 <%=link_to "Save a New Date", new_experience_path %>
