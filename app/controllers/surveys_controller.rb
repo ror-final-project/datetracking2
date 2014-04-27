@@ -1,16 +1,17 @@
 class SurveysController < ApplicationController
-  def index
-		@user = User.find(params[:user_id])
-		flash[:notice] = "Here are all the user questionnaires."
+   def index
+		@user = User.find(params[:experience_id])
 	end
+
 
 	def show
 		@survey = Survey.find(params[:id])
 	end
 
 	def new
+		@survey = Survey.new
 		@experience = Experience.find(params[:experience_id])
-		@survey = @experience.surveys.new
+
 	end
 
 	def create
