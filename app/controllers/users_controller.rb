@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
    def index
+    @users = User.all
   end
 
   def new
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = "Thanks for joining Here's the thing..."
+      session[:user_id] = @user.id
       redirect_to "/"
     else
       flash[:alert] = "There was a problem creating your account. Please try again."
