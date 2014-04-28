@@ -3,7 +3,7 @@ class CreateSurveys < ActiveRecord::Migration
     create_table :surveys do |t|
       t.integer :user_id
       t.integer :datee_id
-      t.integer :answer_id
+    
 
       t.timestamps
     end
