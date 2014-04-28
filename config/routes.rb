@@ -7,7 +7,12 @@ end
 resources :experiences do
   resources :surveys
 end
+
+resources :inbox, :controller => 'inbox', :only =>[:show,:create]
  
+#get "/experiences" => "inbox/new"
+#post "/experiences" => "inbox/create"
+
 get '/' => 'home#index'
 
 get "/log-in" => 'sessions#new'

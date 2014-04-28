@@ -1,11 +1,13 @@
 My Dates:
-<% unless @user == current_user %>
+<br>
+<br>
+<% if @user == current_user %>
 You do not have permission to access this page!
 <% else %>
 	Current Dates:
-	<%= render :partial => 'datees/datees' %>
+	<%= render :partial => 'datees/datees' %><br>
 	Requested Dates:
-	<%= render :partial => 'datees/requested_datees' %>
+	<%= render :partial => 'datees/requested_datee' %><br>
 	Pending Dates:
-	<%= render :partial => 'datees/pending_datees' %>
+	<%= render :partial => 'datees/pending_datees' %><br>
 <% end %>

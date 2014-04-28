@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+# gitbub: 'https://github.com/evendis/mandrill-rails'
+gem 'mandrill-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'

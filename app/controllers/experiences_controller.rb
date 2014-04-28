@@ -32,7 +32,7 @@ class ExperiencesController < ApplicationController
       end
     else
       flash[:alert] = "Sorry, there was no user found with that email."
-      #redirect
+      #redirect to send email invitation by using mandrill 
     end 
   end
 

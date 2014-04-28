@@ -49,6 +49,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mandrill-rails (1.0.1)
+      activesupport (>= 3.0.3)
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
@@ -112,6 +114,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  mandrill-rails
   rails (= 4.0.4)
   sass-rails (~> 4.0.2)
   sdoc
