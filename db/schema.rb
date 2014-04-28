@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20140427211757) do
     t.boolean  "answer"
   end
 
-  create_table "user_surverys", force: true do |t|
+  create_table "user_surveys", force: true do |t|
     t.integer "user_id"
     t.integer "survey_id"
   end
