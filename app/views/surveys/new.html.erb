@@ -1,41 +1,39 @@
 <h1>Surveys</h1>
 
 
-<%=form_for @experience do |f| %>
+<%=form_tag experience_surveys_path(@experience), method: 'post' do %>
 <p>At this moment, I am looking for:</p>
 <br>
 <br>
-<%=f.radio_button :user_id, "Friendship", :answer => true %>
-<%=f.label(:answer, "Friendship") %>
+<%=radio_button_tag(:answer1, "Friendship") %>
+<%=label_tag(:answer1, "Friendship") %>
 <br>
-<%=f.radio_button :user_id, "Hook-Up Only", :answer => true %>
-<%=f.label(:answer, "Hook-Up Only") %>
+<%=radio_button_tag(:answer1, "Hook-Up Only") %>
+<%=label_tag(:answer1, "Hook-Up Only") %>
 <br>
-<%=f.radio_button :user_id, "Casual Dating", :answer => true %>
-<%=f.label(:answer, "Casual Dating") %>
+<%=radio_button_tag(:answer1, "Casual Dating") %>
+<%=label_tag(:answer1, "Casual Dating") %>
 <br>
-<%=f.radio_button :user_id, "Exclusive Relationship", :answer => true %>
-<%=f.label(:answer, "Exclusive Relationship") %>
-<% end %>
+<%=radio_button_tag(:answer1, "Exclusive Relationship") %>
+<%=label_tag(:answer1, "Exclusive Relationship") %>
 <br>
 <br>
 
-<%=form_for @experience do |f| %>
-<p>With *|FNAME|*, I am looking for:</p>
+<p>With <%= @experience.datee.fname %>, I am looking for:</p>
 <br>
 <br> 
-<%=f.radio_button :user_id, "Friendship", :answer => true %>
-<%=f.label(:answer, "Friendship") %>
+<%=radio_button_tag(:answer2, "Friendship") %>
+<%=label_tag(:answer2, "Friendship") %>
 <br>
-<%=f.radio_button :user_id, "Hook-Up Only", :answer => true %>
-<%=f.label(:answer, "Hook-Up Only") %>
+<%=radio_button_tag(:answer2, "Hook-Up Only") %>
+<%=label_tag(:answer2, "Hook-Up Only") %>
 <br>
-<%=f.radio_button :user_id, "Casual Dating", :answer => true %>
-<%=f.label(:answer, "Casual Dating") %>
+<%=radio_button_tag(:answer2, "Casual Dating") %>
+<%=label_tag(:answer2, "Casual Dating") %>
 <br>
-<%=f.radio_button :user_id, "Exclusive Relationship", :answer => true %>
-<%=f.label(:answer, "Exclusive Relationship") %>
+<%=radio_button_tag(:answer2, "Exclusive Relationship") %>
+<%=label_tag(:answer2, "Exclusive Relationship") %>
 <br>
 <br>
-<%=f.submit "Submit" %>
+<%=submit_tag "Submit" %>
 <% end %>
