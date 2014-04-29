@@ -4,7 +4,7 @@
 
 	Who: <%=experience.fname %> 
 	<br>
-	When: <%=experience.date.strftime("%b, %d, %Y") %>
+	When: <%=link_to experience.date.strftime("%b, %d, %Y"), experience_path(experience) %>
 	<br>
 	Where: <%=experience.location %> 
 	<br>
