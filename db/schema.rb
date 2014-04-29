@@ -48,10 +48,9 @@ ActiveRecord::Schema.define(version: 20140427211757) do
   create_table "surveys", force: true do |t|
     t.integer  "user_id"
     t.integer  "datee_id"
-    t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "answer"
+    t.integer  "answer"
   end
 
   create_table "user_surveys", force: true do |t|
