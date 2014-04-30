@@ -1,8 +1,10 @@
 <h1>Save a New Date</h1>
 
 <%=form_for [@experience] do |t| %>
-	<%=label_tag(:user_email, "My date's email") %>  
-	<%=email_field_tag(:user_email) %>
+	<%= t.hidden_field :user_id, :value => params[:user_id] %>
+	<h2 class="date-fname">
+	<%= label_tag( params[:fname]) %>  
+	</h2>
 
 	<br>
 	<%=t.label(:date, "When?") %>  

@@ -15,6 +15,19 @@
 	<br>
 <% end %>
 
-
+<div class="experience-right">
+	<% @users.each do |user| %>
+		<br>
+		
+			
+			<h1>
+				<%= link_to user.fname, new_experience_path(:user_id => user.id, :fname =>
+				user.fname) %>
+			</h1>
+			
+		<br>
+		<% end -%>
+</div>
 
 <%=link_to "Save a New Date", new_experience_path %>
+
