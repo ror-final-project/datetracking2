@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
   def index
     @experiences = current_user.experiences
+    @users = User.all
   end
 
   def show
@@ -13,7 +14,7 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = Experience.new(experience_params)
-    @user = User.where(email: params[:user_email]).first
+    @user = User.where(fname: params[:fname]).first
     
     if @user
       @experience.datee_id = @user.id

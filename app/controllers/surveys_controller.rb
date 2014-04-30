@@ -32,7 +32,7 @@ class SurveysController < ApplicationController
 	private
 
 	def survey_params
-		params.require(:survey).permit(:answer, :user_id, :datee_id) if params[:survey]
+		params.require(:survey).permit(:answer1, :answer2, :user_id, :datee_id) if params[:survey]
 	end
 
 	## do not want to give others ability to edit/delete orig survey
