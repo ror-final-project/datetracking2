@@ -1,7 +1,8 @@
 <h1>Save a New Date</h1>
 
 <%=form_for [@experience] do |t| %>
-	<%= t.hidden_field :user_id, :value => params[:user_id] %>
+	
+	<%= hidden_field_tag(:user_id, params[:user_id]) %>
 	<h2 class="date-fname">
 	<%= label_tag( params[:fname]) %>  
 	</h2>

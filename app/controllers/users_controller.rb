@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.number_of_experiences = 0
     if @user.save
       flash[:notice] = "Thanks for joining Here's the thing..."
       session[:user_id] = @user.id

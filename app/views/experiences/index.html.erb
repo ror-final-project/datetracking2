@@ -21,7 +21,7 @@
 		
 			
 			<h1>
-				<%= link_to user.fname, new_experience_path(:user_id => user.id, :fname =>
+				<%= link_to user.fname, new_experience_path(user_id: user.id, fname:
 				user.fname) %>
 			</h1>
 			
@@ -31,3 +31,4 @@
 
 <%=link_to "Save a New Date", new_experience_path %>
 
+ 

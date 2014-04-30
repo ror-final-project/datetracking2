@@ -5,6 +5,7 @@ resources :users do
 end
 
 resources :experiences do
+  post "/experiences/new"
   resources :surveys
 end
  

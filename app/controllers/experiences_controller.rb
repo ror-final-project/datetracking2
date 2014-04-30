@@ -14,8 +14,8 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = Experience.new(experience_params)
-    @user = User.where(fname: params[:fname]).first
-    
+    @user = User.where(id: params[:user_id].to_i).first
+      
     if @user
       @experience.datee_id = @user.id
       @experience.fname = @user.fname
@@ -25,6 +25,8 @@ class ExperiencesController < ApplicationController
       #redirect.
       #@experience.user = current_user
       if @experience.save
+        #debugger
+        current_user.increment!(:number_of_experiences)
         flash[:notice] = "Your date has been saved."
         redirect_to experiences_path(@experience)
       else
@@ -66,6 +68,6 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:email, :fname, :date, :location, :description)
+    params.require(:experience).permit(:user_id, :fname, :date, :location, :description)
   end
 end

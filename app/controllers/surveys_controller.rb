@@ -18,7 +18,7 @@ class SurveysController < ApplicationController
 		@survey = Survey.new(survey_params)
 		@survey.datee_id = params[:datee_id]
 		@survey.user_id = current_user
-		@survey = Survey.new(params[:answer])
+		@survey = Survey.new(params[:answer].to_i)
 		if  @survey.save
 			flash[:notice] = "Your questionnaire has been saved."
 			redirect_to experiences_path(@surveys)
