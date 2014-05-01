@@ -2,7 +2,9 @@
 <p>Here's the thing... join us!</p>
 <br>
 <br>
-<%=form_for @user do |f| %>
+<%=form_for @user,:url => {:action => "create"}, :html => { :multipart => true } do |f| %>
+<%= f.file_field :photo %>
+<br>
 <%=f.label :fname %>
 <%=f.text_field :fname %>
 <%=f.label :lname %>

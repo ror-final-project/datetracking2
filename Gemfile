@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 gem 'mandrill-api', '~> 1.0.51'
 
+gem 'paperclip'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
