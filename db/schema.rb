@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430000456) do
+ActiveRecord::Schema.define(version: 20140427211757) do
 
   create_table "answers", force: true do |t|
     t.integer  "user_id"
@@ -48,12 +48,12 @@ ActiveRecord::Schema.define(version: 20140430000456) do
   create_table "surveys", force: true do |t|
     t.integer  "user_id"
     t.integer  "datee_id"
-    t.integer  "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "answer"
   end
 
-  create_table "user_surverys", force: true do |t|
+  create_table "user_surveys", force: true do |t|
     t.integer "user_id"
     t.integer "survey_id"
   end
