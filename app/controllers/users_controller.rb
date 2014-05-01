@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    send_mail("zachfeldman@gmail.com", "your math")
+    send_mail("example@example.com", "your math")
     #respond_to do |format|
        # format.html # show.html.erb
         #format.xml { render :xml => @user }
@@ -68,11 +68,10 @@ class UsersController < ApplicationController
        }  
      ],  
      :html=>"<html><h1>Hi <strong>message</strong>, how are you?</h1></html>",  
-     :from_email=>"lpscol01@gmail.com"  
+     :from_email=>"example@example.com"  
     }  
     sending = m.messages.send message  
     puts sending
-
   end
 
 private
