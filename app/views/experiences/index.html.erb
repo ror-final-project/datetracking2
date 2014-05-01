@@ -13,6 +13,9 @@
 	Created: <%= experience.created_at.strftime("%b, %d, %Y") %>
 	<br>
 	<br>
+	<%= link_to experience.fname,  new_experience_survey_path(experience.id, :datee_id => experience.datee_id, :fname =>
+				experience.fname) %>
+
 <% end %>
 
 <div class="experience-right">
@@ -21,8 +24,8 @@
 		
 			
 			<h1>
-				<%= link_to user.fname, new_experience_path(:user_id => user.id, :fname =>
-				user.fname) %>
+				<h1>
+				<%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %>
 			</h1>
 			
 		<br>
