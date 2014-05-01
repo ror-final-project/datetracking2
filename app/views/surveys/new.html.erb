@@ -1,39 +1,26 @@
 <h1>Surveys</h1>
 
 
-<%=form_tag experience_surveys_path(@experience), method: 'post' do %>
-<p>At this moment, I am looking for:</p>
-<br>
-<br>
-<%=radio_button_tag(:answer1, "Friendship") %>
-<%=label_tag(:answer1, "Friendship") %>
-<br>
-<%=radio_button_tag(:answer1, "Hook-Up Only") %>
-<%=label_tag(:answer1, "Hook-Up Only") %>
-<br>
-<%=radio_button_tag(:answer1, "Casual Dating") %>
-<%=label_tag(:answer1, "Casual Dating") %>
-<br>
-<%=radio_button_tag(:answer1, "Exclusive Relationship") %>
-<%=label_tag(:answer1, "Exclusive Relationship") %>
-<br>
-<br>
+<%=form_tag experience_surveys_path(@experience ), method: 'post' do %>
 
-<p>With <%= @experience.datee.fname %>, I am looking for:</p>
+debugger
+<p>With <%= @experience.fname  %>, I am looking for:</p>
 <br>
 <br> 
-<%=radio_button_tag(:answer2, "Friendship") %>
-<%=label_tag(:answer2, "Friendship") %>
+<%=radio_button_tag(:answer, 1) %>
+<%=label_tag(:answer, "Friendship") %>
 <br>
-<%=radio_button_tag(:answer2, "Hook-Up Only") %>
-<%=label_tag(:answer2, "Hook-Up Only") %>
+<%=radio_button_tag(:answer, 2) %>
+<%=label_tag(:answer, "Hook-Up Only") %>
 <br>
-<%=radio_button_tag(:answer2, "Casual Dating") %>
-<%=label_tag(:answer2, "Casual Dating") %>
+<%=radio_button_tag(:answer, 3) %>
+<%=label_tag(:answer, "Casual Dating") %>
 <br>
-<%=radio_button_tag(:answer2, "Exclusive Relationship") %>
-<%=label_tag(:answer2, "Exclusive Relationship") %>
+<%=radio_button_tag(:answer, 4) %>
+<%=label_tag(:answer, "Exclusive Relationship") %>
 <br>
 <br>
+<%= hidden_field_tag(:datee_id, @experience.datee_id) %>
 <%=submit_tag "Submit" %>
 <% end %>
+
