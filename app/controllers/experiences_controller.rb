@@ -21,6 +21,11 @@ class ExperiencesController < ApplicationController
       @experience.datee_id = @user.id
       @experience.fname = @user.fname
       @experience.user_id = current_user.id
+      
+      if @experience.date == nil
+        @experience.date = Date.current
+        
+      end  
       #if a user is found, assign them to that experience, flash notice
       #to inform of success,
       #redirect.

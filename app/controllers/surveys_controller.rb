@@ -5,7 +5,8 @@ class SurveysController < ApplicationController
 
 
 	def show
-		@survey = Survey.find(params[:datee_id])
+		@survey = Survey.where(:datee_id => params[:id], :user_id => current_user.id ).first
+		@experiences = Experience.where(:datee_id => params[:id], :user_id => current_user.id)
 	end
 
 	def new

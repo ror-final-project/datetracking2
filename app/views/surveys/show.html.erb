@@ -1,2 +1,18 @@
 <h1>Surveys#show</h1>
-<p>Find me in app/views/surveys/show.html.erb</p>
+
+<% @experiences.each do  |experience| %>
+	Who: <%=experience.fname %> 
+	<br>
+	
+	<br>
+	Where: <%=experience.location %> 
+	<br>
+	Description: <%=experience.description %>
+	<br>
+	Created: <%=distance_of_time_in_words(Time.now, experience.created_at) %>
+	<br>
+	<br>
+<% end -%>
+
+<%= @survey.answer %>
+
