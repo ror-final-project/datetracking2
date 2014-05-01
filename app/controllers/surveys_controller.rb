@@ -5,7 +5,8 @@ class SurveysController < ApplicationController
 
 
 	def show
-		@survey = Survey.find(params[:datee_id])
+		@survey = Survey.where(:datee_id => params[:id], :user_id => current_user.id ).first
+		@experiences = Experience.where(:datee_id => params[:id], :user_id => current_user.id)
 	end
 
 	def new
@@ -16,9 +17,10 @@ class SurveysController < ApplicationController
 
 	def create
 		@survey = Survey.new(survey_params)
-		@survey.datee_id = params[:datee_id]
-		@survey.user_id = current_user
-		@survey = Survey.new(params[:answer])
+		#@survey.datee_id = params[:datee_id]
+		@survey.user_id = current_user.id
+		#debugger
+		#@survey.answer = params[:answer].to_i
 		if  @survey.save
 			flash[:notice] = "Your questionnaire has been saved."
 			redirect_to experiences_path(@surveys)
@@ -32,7 +34,7 @@ class SurveysController < ApplicationController
 	private
 
 	def survey_params
-		params.require(:survey).permit(:answer1, :answer2, :user_id, :datee_id) if params[:survey]
+		params.permit(:answer, :user_id, :datee_id) 
 	end
 
 	## do not want to give others ability to edit/delete orig survey
