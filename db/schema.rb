@@ -12,10 +12,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20140501033326) do
+=======
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140427211757) do
 =======
 ActiveRecord::Schema.define(version: 20140501160904) do
 >>>>>>> john
+>>>>>>> 9fc3d77fbf4a5246f8980caa14e183ebc4a52221
 
   create_table "answers", force: true do |t|
     t.integer  "user_id"
@@ -53,15 +57,18 @@ ActiveRecord::Schema.define(version: 20140501160904) do
     t.integer  "user_id"
     t.integer  "datee_id"
 <<<<<<< HEAD
+    t.integer  "answer"
+=======
+<<<<<<< HEAD
 =======
     t.integer  "answer",     limit: 255
 >>>>>>> john
+>>>>>>> 9fc3d77fbf4a5246f8980caa14e183ebc4a52221
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "answer"
   end
 
-  create_table "user_surveys", force: true do |t|
+  create_table "user_surverys", force: true do |t|
     t.integer "user_id"
     t.integer "survey_id"
   end
@@ -75,6 +82,9 @@ ActiveRecord::Schema.define(version: 20140501160904) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "number_of_experiences"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.string   "photo_file_size"
   end
 
 end

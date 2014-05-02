@@ -1,9 +1,6 @@
 class User < ActiveRecord::Base
 
-has_many :datees, :through => :relationships, :conditions => "status = 'accepted'"
-has_many :requested_datees, :through => :relationships, :source => :datee, :conditions => "status = 'requested'", :order => :created_at
-has_many :pending_datees, :through => :relationships, :source => :datee, :conditions => "status = 'pending'", :order => :created_at
-has_many :relationships, :dependent => :destroy
+has_many :datees
 
 has_many :surveys
 has_many :experiences
@@ -16,6 +13,11 @@ validates_presence_of :password, :on => :create
 validates_presence_of :email
 validates_uniqueness_of :email
 
+has_attached_file :photo, :styles => { :small => "150x150>" },
+:url => "/system/:attachment/:id/:style/:basename.:extension",
+:path => ":rails_root/public/system/:attachment/:id/:style/:basename.:extension"
+
+validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 	def encrypt_password
 		if password.present?
 			self.password_salt = BCrypt::Engine.generate_salt
