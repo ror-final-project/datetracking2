@@ -23,7 +23,7 @@ class SurveysController < ApplicationController
 		#@survey.answer = params[:answer].to_i
 		if  @survey.save
 		  if  is_similar?(@survey.user_id, @survey.datee_id)
-			email_method(@survey.answer)
+			#email_method(@survey.answer)
 		  end
 			#flash[:notice] = "Your questionnaire has been saved."
 			redirect_to experiences_path(@surveys)
@@ -36,17 +36,17 @@ class SurveysController < ApplicationController
 
 	private
 
-	# def is_similar?(current, datee)
-	# 	current_user_survey = Survey.where(:datee_id => datee, :user_id => current ).first
-	# 	 datee_survey = Survey.where(:datee_id => current, :user_id =>  datee ).first
-	# 	 #debugger
-	# 	if datee_survey && current_user_survey
-	# 		if datee_survey.answer == current_user_survey.answer
+	def is_similar?(current, datee)
+		current_user_survey = Survey.where(:datee_id => datee, :user_id => current ).first
+		 datee_survey = Survey.where(:datee_id => current, :user_id =>  datee ).first
+		 #debugger
+		if datee_survey && current_user_survey
+			if datee_survey.answer == current_user_survey.answer
 
-	# 			return true
-	# 		end 
-	# 	end
-	# end	
+				return true
+			end 
+		end
+	end	
 
 	def survey_params
 		params.permit(:answer, :user_id, :datee_id) 
