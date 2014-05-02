@@ -55,20 +55,25 @@ class UsersController < ApplicationController
     #end
   end
 
+  def invite_user
+    send_mail(params[:email], "Your friend has invited you to Here's the Thing!")
+    redirect_to "/"
+  end
+
   def send_mail(email, message)
     m = Mandrill::API.new
     message = {  
      :subject=> "Hello from the Mandrill API",  
-     :from_name=> "Sonia",  
+     :from_name=> "Here's The Thing",  
      :text=>message,  
      :to=>[  
        {  
-         :email=> email,  
+         :email=> "recipient@theirdomain.com",  
          :name=> "Recipient1"  
        }  
      ],  
      :html=>"<html><h1>Hi <strong>message</strong>, how are you?</h1></html>",  
-     :from_email=>"example@example.com"  
+     :from_email=>"sender@yourdomain.com"  
     }  
     sending = m.messages.send message  
     puts sending

@@ -1,2 +1,9 @@
 <h1>Here's the thing...</h1>
 
+<h3>Invite your Date</h3>
+<%=form_tag "/invite_user" do |f| %>
+	<%=label_tag :email, "Email" %>
+	<%=text_field_tag :email %>
+	<%=submit_tag :submit %>
+<% end %>
+

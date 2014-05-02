@@ -15,6 +15,8 @@ post "/log-in" => 'sessions#create', as: :log_in
 get "/log-out" => 'sessions#destroy', as: :log_out
 
 root to: "home#index"
+
+post "/invite_user" => 'users#invite_user'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
