@@ -28,7 +28,7 @@
           <% if current_user != nil %>
             <li class="active"><a href="/experiences">Experiences</a></li>
           <% end -%>  
-          <li class="active"><a href="/users">Users</a></li>
+          <li class="active"><a href="/users/<%= current_user.id %>">My Profile</a></li>
         </ul>
         <p class="navbar-text pull-right">
           <ul class="nav navbar-nav">

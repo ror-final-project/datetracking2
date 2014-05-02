@@ -19,6 +19,8 @@
 <% end %>
 <br>
 	<%=link_to "Save a New Date", new_experience_path %>
+
+	<%=link_to "My Profile", user_path(@current_user) %>
 	<br>
 	</div>
 <div class="experience-right">
@@ -26,7 +28,7 @@
 		<%if current_user.id != user.id %>
 			<br>
 				<h1>
-				
+					<%= image_tag user.photo.url (:small)%>
 					<%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %>
 			</h1>
 			
