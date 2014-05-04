@@ -19,6 +19,21 @@
     </h1>
 
     <nav class="navbar span12 pagination-centered" role="navigation">
+
+<div>
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%=flash[:notice] if flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%=flash[:alert] if flash[:alert] %>
+    </div>
+  <% end%> 
+</div>
+      
         <div class="navbar-inner">
 
           <ul class="nav">
@@ -45,18 +60,6 @@
           </ul>
         </div><!-- end .navbar-inner -->
     </nav> 
-
-  <% if flash[:notice] %>
-    <div class="alert alert-success">
-      <%=flash[:notice] if flash[:notice] %>
-    </div>
-  <% end %>
-
-  <% if flash[:alert] %>
-    <div class="alert alert-danger">
-      <%=flash[:alert] if flash[:alert] %>
-    </div>
-  <% end%> 
 
   <div class="span12 pagination-centered">
     <%= yield %>
