@@ -60,6 +60,10 @@ class UsersController < ApplicationController
     redirect_to "/"
   end
 
+# if params[:answer] == 0
+#   message(params[:email], "Message is for this")
+# elsif params[:answer] == 1
+
   def send_mail(email, message)
     m = Mandrill::API.new
     message = {  
@@ -69,10 +73,13 @@ class UsersController < ApplicationController
      :to=>[  
        {  
          :email=> "recipient@theirdomain.com",  
-         :name=> "Recipient1"  
+         :name=> ""  
        }  
      ],  
-     :html=>"<html><h1>Hi <strong>message</strong>, how are you?</h1></html>",  
+     :html=>"<html>
+          <h1>Hi, I'd like to invite you to checkout this awesome datetracking app.</h1>
+          <a href='http://localhost:3000'>Link to Here's the Thing</a>
+            </html>",  
      :from_email=>"sender@yourdomain.com"  
     }  
     sending = m.messages.send message  
