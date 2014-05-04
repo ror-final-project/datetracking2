@@ -39,6 +39,7 @@
               <li class="active"><a href="/users/new">Sign up</a></li>
             <% end -%>
             <% if current_user != nil %>
+              <li class="active"><a href="/users/<%= current_user.id %>">My Profile</a></li>
               <li class="active"><a href="/log-out">Log out</a></li>
             <% end -%>
           </ul>

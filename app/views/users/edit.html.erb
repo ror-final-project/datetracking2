@@ -1,5 +1,5 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edit my profile...</h1>
+
 <%=form_for @user,:url => user_path(@user), :html => { :multipart => true } do |f| %>
 <%= f.file_field :photo %>
 <br>
@@ -17,5 +17,10 @@
 <%=f.label :password_confirmation %>
 <%=f.password_field :password %>
 <br>
+<%=f.label :description %>
+<%=f.text_field :description %>
+<br>
+<br>
+
 <%=f.submit "Save Changes" %>
 <% end %>

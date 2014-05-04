@@ -1,14 +1,24 @@
 
-
-
+<div class="experience-right">
+	<%=link_to "Edit My Profile", edit_user_path(current_user.id) %>
+</div>
+<br>
+<br>
+<br>
 <%= image_tag @user.photo.url (:medium)%>
-<%=link_to "Edit My Profile", edit_user_path(current_user.id) %>
+<br>
+
+
+<br>
+<br>
 <h1><%= @user.fname + " " + @user.lname %></h1>
 
-<%= @user.email %>
 <br>
 <br>
-Here's my thing:
+<b>Here's my thing:</b>
+<br>
+<br>
+<i><%= @user.description %></i>
 
 
 
