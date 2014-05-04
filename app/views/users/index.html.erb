@@ -3,11 +3,11 @@
 
 
 <% @users.each do |user| %>
-	<h1>
+	<h4>
 		<%= image_tag user.photo.url (:small)%>
 		<br>
 		<%=link_to user.fname + " " + user.lname, user_path(user) %>
-	</h1>
+	</h4>
 	<br>
 
 <% end -%>
