@@ -38,9 +38,7 @@
 				<%=submit_tag :submit %>
 			<% end %>
 		</div>
-	</div>
-		
-	<div class="experience-right">
+
 		<% @users.each do |user| %>
 		<% @experiences.each do |experience|%>
 			<%if user.id == experience.datee_id %>
