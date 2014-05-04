@@ -25,14 +25,16 @@
 	</div>
 <div class="experience-right">
 	<% @users.each do |user| %>
-		<%if current_user.id != user.id %>
+	<% @experiences.each do |experience|%>
+		<%if user.id == experience.datee_id %>
 			<br>
-				<h1>
 					<%= image_tag user.photo.url (:small)%>
-					<%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %>
-			</h1>
+					<h1><%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %></h1>
+					<br>
+					<%= link_to "Remove", experience_path(experience), method: :delete, confirm: "Are you sure?" %>
 			
 			<br>
+			<% end -%>	
 		<% end -%>
 	<% end -%>
 </div>
