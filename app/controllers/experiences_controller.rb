@@ -63,7 +63,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
     if @experience.destroy
       flash[:notice] = "You date has been destroyed!"
-      redirect_to "/"
+      redirect_to "/experiences"
     else
       flash[:alert] = "There was an issue updating your date."
       redirect_to :back
