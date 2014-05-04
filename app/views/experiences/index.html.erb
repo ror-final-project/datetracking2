@@ -5,11 +5,11 @@
 	<div class="span8 experience-left">
 		<% @experiences.each do |experience| %>
 		<br>
-		Survey: <%= link_to experience.fname,  new_experience_survey_path(experience.id, :datee_id => experience.datee_id, :fname =>
+			<strong>Survey:</strong> <%= link_to experience.fname,  new_experience_survey_path(experience.id, :datee_id => experience.datee_id, :fname =>
 				experience.fname) %>
 
 		<br>
-			<strong>When:</strong><%=experience.date.strftime("%b, %d, %Y") %> 
+			<strong>When:</strong> <%=experience.date.strftime("%b, %d, %Y") %> 
 		<br>
 			<strong>Where:</strong> <%=experience.location %> 
 		<br>
@@ -18,7 +18,7 @@
 			<strong>Created:</strong> <%= experience.created_at.strftime("%b, %d, %Y") %>
 		<br>
 		<br>
-		Survey results: <%= link_to  experience.fname,  experience_survey_path(experience.id, :id => experience.datee_id ) %>
+			<strong>Survey results:</strong> <%= link_to  experience.fname,  experience_survey_path(experience.id, :id => experience.datee_id ) %>
 		<hr>
 		<% end %>
 		<br>
@@ -43,7 +43,7 @@
 			<%if user.id == experience.datee_id %>
 				<br>
 				<%= image_tag user.photo.url (:small)%>
-				<h1><%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %></h1>
+				<h4><%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %></h4>
 				<br>
 				<%= link_to "Remove", experience_path(experience), method: :delete, confirm: "Are you sure?" %>
 				<br>
