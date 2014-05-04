@@ -62,8 +62,8 @@ class ExperiencesController < ApplicationController
   def destroy
     @experience = Experience.find(params[:id])
     if @experience.destroy
-      flash[:notice] = "You date has been updated!"
-      redirect_to user_experience_path(@experience.user)
+      flash[:notice] = "You date has been destroyed!"
+      redirect_to "/"
     else
       flash[:alert] = "There was an issue updating your date."
       redirect_to :back
