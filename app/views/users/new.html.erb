@@ -3,11 +3,12 @@
 <br>
 <br>
 <%=form_for @user,:url => {:action => "create"}, :html => { :multipart => true } do |f| %>
+<%=f.label :photo, "Upload your profile picture" %>
 <%= f.file_field :photo %>
 <br>
-<%=f.label :fname %>
+<%=f.label :fname, "Frist Name" %>
 <%=f.text_field :fname %>
-<%=f.label :lname %>
+<%=f.label :lname, "Last Name" %>
 <%=f.text_field :lname %>
 <br>
 <%=f.label :email %>

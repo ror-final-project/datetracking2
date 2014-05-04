@@ -1,41 +1,55 @@
 <h1>Your recent dates, <%= current_user.fname%>...</h1>
-<div class="experience-left">
-<% @experiences.each do |experience| %>
-	<br>
-	Survey: <%= link_to experience.fname,  new_experience_survey_path(experience.id, :datee_id => experience.datee_id, :fname =>
-				experience.fname) %>
-	<br>
-	
-	<br>
-	Where: <%=experience.location %> 
-	<br>
-	Description: <%=experience.description %>
-	<br>
-	Created: <%= experience.created_at.strftime("%b, %d, %Y") %>
-	<br>
-	<br>
-	Survey results: <%= link_to  experience.fname,  experience_survey_path(experience.id, :id => experience.datee_id ) %>
-	<br>
-<% end %>
-<br>
-	<%=link_to "Save a New Date", new_experience_path %>
 
-	<%=link_to "My Profile", user_path(@current_user) %>
-	<br>
+<div class="row">
+	<div class="span8 experience-left">
+		<% @experiences.each do |experience| %>
+		<br>
+		Survey: <%= link_to experience.fname,  new_experience_survey_path(experience.id, :datee_id => experience.datee_id, :fname =>
+				experience.fname) %>
+		<br>
+		<br>
+		Where: <%=experience.location %> 
+		<br>
+		Description: <%=experience.description %>
+		<br>
+		Created: <%= experience.created_at.strftime("%b, %d, %Y") %>
+		<br>
+		<br>
+		Survey results: <%= link_to  experience.fname,  experience_survey_path(experience.id, :id => experience.datee_id ) %>
+		<br>
+		<br>
+		<br>
+		<% end %>
+		<br>
+		<%=link_to "Save a New Date", new_experience_path %>
+		<%=link_to "My Profile", user_path(@current_user) %>
+		<br>
 	</div>
-<div class="experience-right">
-	<% @users.each do |user| %>
+
+	<div class="span4 experience-right">
+		<h4>Invite Your Date</h4>
+
+		<div>
+			<%=form_tag "/invite_user" do |f| %>
+				<%=label_tag :email, "Email" %>
+				<%=text_field_tag :email %>
+				<%=submit_tag :submit %>
+			<% end %>
+		</div>
+		<% @users.each do |user| %>
 		<%if current_user.id != user.id %>
 			<br>
-				<h1>
+				<h4>
 					<%= image_tag user.photo.url (:small)%>
 					<%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %>
-			</h1>
-			
+				</h4>			
 			<br>
 		<% end -%>
-	<% end -%>
+		<% end -%>
+	</div>
+
 </div>
+
 
 
 
