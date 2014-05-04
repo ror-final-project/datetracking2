@@ -10,7 +10,10 @@
 }
 
 h1{
-	margin-left: 25px;
+	margin-bottom: 25px;
+	font-size: 80px;
+	font-family: "Amatic SC", cursive;
+	font-weight: 400;
 }
 .experience-left {
 	float: left;
@@ -18,4 +21,20 @@ h1{
 	
 	margin-left: 100px;
 
+}
+a:hover {
+	text-decoration:none;
+}
+
+.navbar .nav,
+.navbar .nav > li {
+  float:none;
+  display:inline-block;
+  *display:inline; /* ie7 fix */
+  *zoom:1; /* hasLayout ie7 trigger */
+  vertical-align: top;
+}
+
+.navbar-inner {
+  text-align:center;
 }
