@@ -1,14 +1,13 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h2>We've all got our own things...</h2>
+
 
 
 <% @users.each do |user| %>
 	<h1>
-		<%= user.fname  %>
+		<%= image_tag user.photo.url (:small)%>
+		<br>
+		<%=link_to user.fname + " " + user.lname, user_path(user) %>
 	</h1>
-	
-	<br>
-	<%= user.email  %>
 	<br>
 
 <% end -%>
