@@ -48,7 +48,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    send_mail("example@example.com", "your math")
+    #debugger
+    send_mail(@user.fname, @user.email, "your math")
+    #debugger
     #respond_to do |format|
        # format.html # show.html.erb
         #format.xml { render :xml => @user }
@@ -64,27 +66,28 @@ class UsersController < ApplicationController
 #   message(params[:email], "Message is for this")
 # elsif params[:answer] == 1
 
-  def send_mail(email, message)
-    m = Mandrill::API.new
-    message = {  
-     :subject=> "Hello from the Mandrill API",  
-     :from_name=> "Here's The Thing",  
-     :text=>message,  
-     :to=>[  
-       {  
-         :email=> "recipient@theirdomain.com",  
-         :name=> ""  
-       }  
-     ],  
-     :html=>"<html>
-          <h1>Hi, I'd like to invite you to checkout this awesome datetracking app.</h1>
-          <a href='http://localhost:3000'>Link to Here's the Thing</a>
-            </html>",  
-     :from_email=>"sender@yourdomain.com"  
-    }  
-    sending = m.messages.send message  
-    puts sending
-  end
+  # def send_mail(name, email, message)
+  #   m = Mandrill::API.new
+  #   #debugger
+  #   message = {  
+  #    :subject=> "Hello from the Mandrill API",  
+  #    :from_name=> "Here's The Thing",  
+  #    :text=>message,  
+  #    :to=>[  
+  #      {  
+  #        :email=> email,  
+  #        :name=> name,  
+  #      }  
+  #    ],  
+  #    :html=>"<html>
+  #         <h1>Hi, I'd like to invite you to checkout this awesome datetracking app.</h1>
+  #         <a href='http://localhost:3000'>Link to Here's the Thing</a>
+  #           </html>",  
+  #    :from_email=>"sender@yourdomain.com"  
+  #   }  
+  #   sending = m.messages.send message  
+  #   puts sending
+  # end
 
 private
 def user_params

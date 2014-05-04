@@ -1,4 +1,6 @@
+require 'mandrill'  
 class SurveysController < ApplicationController
+	
    def index
 		@user = User.find(params[:experience_id])
 	end
@@ -23,7 +25,8 @@ class SurveysController < ApplicationController
 		#@survey.answer = params[:answer].to_i
 		if  @survey.save
 		  if  @survey.is_similar?(@survey.user_id, @survey.datee_id)
-			flash[:notice] = " You have a math problem"
+			send_mail(current_user.fname, current_user.email, "You had a match!")
+			flash[:notice] = "You had a match!"
 		  end
 			#flash[:notice] = "Your questionnaire has been saved."
 			redirect_to experiences_path(@surveys)
