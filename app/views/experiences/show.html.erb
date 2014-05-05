@@ -13,6 +13,8 @@ Created: <%=distance_of_time_in_words(Time.now, @experience.created_at) %>
 <br>
 <%= link_to "Edit this Experience", edit_experience_path %>
 <br>
+<%= link_to "Delete this Experience", experience_path(@experience), method: :delete, confirm: "Are you sure?" %>
+<br>
 <br>
 
 <%= link_to "See all Experiences", experiences_path %>

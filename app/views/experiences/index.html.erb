@@ -9,7 +9,7 @@
 				experience.fname) %>
 
 		<br>
-			<strong>When:</strong> <%=experience.date.strftime("%b, %d, %Y") %> 
+			<strong>When:</strong> <%=link_to experience.date.strftime("%b, %d, %Y"), experience_path(experience) %>
 		<br>
 			<strong>Where:</strong> <%=experience.location %> 
 		<br>
@@ -40,19 +40,17 @@
 		
 		<% if @experiences.where(:datee_id => i).first.datee_id == user.id  %>
 			 
-			
 				<br>
 				<%= image_tag user.photo.url (:small)%>
 				<h4><%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %></h4>
-				<br>
-				
 				<br>
 				
 			<% end -%>
 			 
 		<% end -%>
 		 	 <% i += 1 %>
-		<% end -%>
+	<% end -%>
+
 	</div>
 
 </div>
