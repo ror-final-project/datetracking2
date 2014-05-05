@@ -11,11 +11,15 @@
 
 <br>
 <br>
-	<h1><%=link_to @user.fname + " " + @user.lname, new_experience_path(user_id: @user.id, fname: @user.fname) %> </h1>
-
-
-
-
+	<% if @user.id != current_user.id  %>
+		<p>Click me to set a date</p>
+		<h1><%=link_to @user.fname + " " + @user.lname, new_experience_path(user_id: @user.id, fname: @user.fname) %> </h1>	
+		<% else %>
+		<% if @user.id == current_user.id %>
+			<h1><%= @user.fname + " " +@user.lname %></h1>
+		<% end %>
+				
+	<% end -%>
 <br>
 <br>
 <b>Here's my thing:</b>
