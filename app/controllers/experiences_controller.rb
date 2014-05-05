@@ -2,6 +2,7 @@ class ExperiencesController < ApplicationController
   def index
     @experiences = current_user.experiences
     @users = User.all
+    #debugger
   end
 
   def show
