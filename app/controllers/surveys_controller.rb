@@ -26,7 +26,7 @@ class SurveysController < ApplicationController
 		if  @survey.save
 		  if  @survey.is_similar?(@survey.user_id, @survey.datee_id)
 			send_mail(current_user.fname, current_user.email, "You had a match!")
-			flash[:notice] = "You had a match!"
+			flash[:notice] = "You have a match!"
 		  end
 			#flash[:notice] = "Your questionnaire has been saved."
 			redirect_to experiences_path(@surveys)
