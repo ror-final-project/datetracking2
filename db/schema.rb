@@ -48,12 +48,12 @@ ActiveRecord::Schema.define(version: 20140504182542) do
   create_table "surveys", force: true do |t|
     t.integer  "user_id"
     t.integer  "datee_id"
-    t.integer  "answer",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "answer",     limit: 255
   end
 
-  create_table "user_surverys", force: true do |t|
+  create_table "user_surveys", force: true do |t|
     t.integer "user_id"
     t.integer "survey_id"
   end

@@ -3,6 +3,9 @@ require 'mandrill'
 class UsersController < ApplicationController
    def index
     @users = User.all
+    @user_search = User.all.to_json
+    gon.users = User.all.to_json
+
   end
 
   def new
@@ -49,7 +52,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     #debugger
-    send_mail(@user.fname, @user.email, "your math")
+    #send_mail(@user.fname, @user.email, "your math")
     #debugger
     #respond_to do |format|
        # format.html # show.html.erb
