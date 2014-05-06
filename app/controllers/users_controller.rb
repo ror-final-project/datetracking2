@@ -2,6 +2,10 @@ require 'mandrill'
 
 class UsersController < ApplicationController
   def index
+    if current_user.nil?
+      redirect_to "/"
+      flash[:alert] = "Please log-in or sign up before continuing..."
+    end
   end
 
   def user_list
