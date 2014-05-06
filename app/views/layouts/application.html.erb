@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html ng-app="instantSearch">
 <head>
   <title>Here's the thing...</title>
   <%= include_gon %>
@@ -48,8 +48,8 @@
               <a href="/experiences">Experiences</a>
             </li>
             <% end -%>  
-            <li class="active">
-              <a href="/users">All Users</a>
+            <li class="active"  data-no-turbolink>
+              <a href="/users" ng-controller="InstantSearchController">All Users</a>
             </li>
             
             <% if current_user == nil %>
