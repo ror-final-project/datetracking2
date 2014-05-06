@@ -13,7 +13,8 @@
 			 searchString model as an argument.
 		 -->
 		<ul data-ng-repeat="i in items | searchFor:searchString" data-ng-controller="InstantSearchController">
-			<!-- <img ng-src="/system/photos/4/original/{{i.photo_file_name}}" /> -->
+			<img ng-src="{{i.id}}/{{i.photo_file_name}}" />
+			<a href="{{i.url}}"><img ng-src="{{i.image}}" /></a>
 			<a ng-href="users/{{i.id}}"/>
 			<span data-ng-bind="i.fname" data-ng-controller="InstantSearchController"></span>
 			<span data-ng-bind="i.lname" data-ng-controller="InstantSearchController"></span>

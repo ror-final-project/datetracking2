@@ -24,6 +24,16 @@ app.filter('searchFor', function(){
 
 			if(item.fname.toLowerCase().indexOf(searchString) !== -1){
 				result.push(item);
+				
+			}
+
+			else if(item.lname.toLowerCase().indexOf(searchString) !== -1){
+				result.push(item);
+				debugger
+			}
+
+			else if(item.email.toLowerCase().indexOf(searchString) !== -1){
+				result.push(item);
 			}
 
 		});
@@ -44,6 +54,6 @@ function InstantSearchController($scope ){
 	// but are hardcoded here for simplicity. See the next example for
 	// tips on using AJAX.
 
-	$scope.items = js
-
+	$scope.items = js;
+	
 }
