@@ -1,6 +1,6 @@
 
 <div class="experience-right">
-	<%=link_to "Edit My Profile", edit_user_path(current_user.id) %>
+	
 </div>
 <br>
 <br>
@@ -17,15 +17,23 @@
 		<% else %>
 		<% if @user.id == current_user.id %>
 			<h1><%= @user.fname + " " +@user.lname %></h1>
+			<%=link_to "Edit My Profile", edit_user_path(current_user.id) %>
+			|
+			
 		<% end %>
 				
 	<% end -%>
+	<%= link_to "Delete My Account", user_path(current_user), method: :delete, confirm: "Are you sure you want to delete your account?" %>
 <br>
 <br>
 <b>Here's my thing:</b>
 <br>
 <br>
 <i><%= @user.description %></i>
+<br>
+<br>
+<br>
+<br>
 
 
 
