@@ -1,11 +1,12 @@
 require 'mandrill'  
 
 class UsersController < ApplicationController
-   def index
-    @users = User.all
-    @user_search = User.all.to_json
-    gon.users = User.all.to_json
+  def index
+  end
 
+  def user_list
+    @users = User.all
+    render json: @users, status: 200
   end
 
   def new

@@ -12,9 +12,10 @@
 			 the custom search filter "searchFor". It takes the value of the
 			 searchString model as an argument.
 		 -->
-		<ul data-ng-repeat="i in items | searchFor:searchString" >
-			<img ng-src="{{i.id}}/{{i.photo_file_name}}" />
-			<a href="{{i.url}}"><img ng-src="{{i.image}}" /></a>
+		<ul data-ng-repeat="i in items  | searchFor:searchString" >
+			<img ng-src="system/photos/{{i.id}}/small/{{i.photo_file_name}}" />
+			<br>
+			<!-- <a href="{{i.url}}"><img ng-src="{{i.image}}" /></a> -->
 			<a ng-href="users/{{i.id}}"/>
 			<span data-ng-bind="i.fname" ></span>
 			<span data-ng-bind="i.lname" ></span>

@@ -55,9 +55,12 @@ app.filter('searchFor', function(){
 // js = JSON.parse(json);
 
 app.controller('InstantSearchController', ['$scope', '$http', function($scope, $http) {
-	console.log("BRO")
-	$http({method: 'GET', url: '/users'}).
+
+	$http({method: 'GET', url: '/user-list', dataType: 'json', data: '', headers: {
+        "Content-Type": "application/json"
+    }}).
     success(function(data, status, headers, config) {
+     	console.log("GETTING DEM USERS!")
       $scope.items = data;
       // when the response is available
     }).
