@@ -48,10 +48,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user && @user.destroy
       flash[:notice] = "Your user has been deleted."
+      redirect_to "/log-out"
     else
       flash[:alert] = "There was an issue deleting that user..."
+      redirect_to "/users"
     end
-    redirect_to "/users"
   end
 
   def show
