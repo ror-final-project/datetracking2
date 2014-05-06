@@ -1,8 +1,16 @@
 require 'mandrill'  
 
 class UsersController < ApplicationController
-   def index
+  def index
+    if current_user.nil?
+      redirect_to "/"
+      flash[:alert] = "Please log-in or sign up before continuing..."
+    end
+  end
+
+  def user_list
     @users = User.all
+    render json: @users, status: 200
   end
 
   def new
@@ -49,7 +57,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     #debugger
-    send_mail(@user.fname, @user.email, "your math")
+    #send_mail(@user.fname, @user.email, "your math")
     #debugger
     #respond_to do |format|
        # format.html # show.html.erb

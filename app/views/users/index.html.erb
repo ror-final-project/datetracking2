@@ -1,13 +1,24 @@
 <h2>We've all got our own things...</h2>
+<!-- Initialize a new AngularJS app and associate it with a module named "instantSearch"-->
+<div ng-app="instantSearch" ng-controller="InstantSearchController">
 
+	<div class="bar">
+		<!-- Create a binding between the searchString model and the text field -->
+		<input type="text" ng-model="searchString" placeholder="Enter your search terms" />
+	</div>
 
-
-<% @users.each do |user| %>
-	<h4>
-		<%= image_tag user.photo.url (:small)%>
-		<br>
-		<%=link_to user.fname + " " + user.lname, user_path(user) %>
-	</h4>
-	<br>
-
-<% end -%>
+	<ul>
+		<!-- Render a li element for every entry in the items array. Notice
+			 the custom search filter "searchFor". It takes the value of the
+			 searchString model as an argument.
+		 -->
+		<ul data-ng-repeat="i in items  | searchFor:searchString" >
+			<img ng-src="system/photos/{{i.id}}/small/{{i.photo_file_name}}" />
+			<br>
+			<!-- <a href="{{i.url}}"><img ng-src="{{i.image}}" /></a> -->
+			<a ng-href="users/{{i.id}}"/>
+			<span data-ng-bind="i.fname" ></span>
+			<span data-ng-bind="i.lname" ></span>
+		</ul>
+	</ul>
+</div>

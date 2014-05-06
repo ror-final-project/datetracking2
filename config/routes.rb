@@ -1,13 +1,15 @@
 Datetrack::Application.routes.draw do
 
-resources :users do 
+resources :users do
   resources :datees
 end
+
+get "/user-list" => "users#user_list"
 
 resources :experiences do
   resources :surveys
 end
- 
+
 get '/' => 'home#index'
 
 get "/log-in" => 'sessions#new'
