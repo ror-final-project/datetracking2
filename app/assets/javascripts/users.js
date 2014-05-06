@@ -1,6 +1,12 @@
 
 var app = angular.module("instantSearch", []);
 
+
+// app.factory('User', function($resource, $rootScope) {
+//   return $resource('/users',{},{})
+// });
+
+
 // Create the instant search filter
 
 app.filter('searchFor', function(){
@@ -29,7 +35,7 @@ app.filter('searchFor', function(){
 
 			else if(item.lname.toLowerCase().indexOf(searchString) !== -1){
 				result.push(item);
-				debugger
+				
 			}
 
 			else if(item.email.toLowerCase().indexOf(searchString) !== -1){
@@ -44,16 +50,37 @@ app.filter('searchFor', function(){
 });
 
 // The controller
-var json = gon.users;
+// var json = gon.users;
  
-js = JSON.parse(json);
+// js = JSON.parse(json);
 
-function InstantSearchController($scope ){
+app.controller('InstantSearchController', ['$scope', '$http', function($scope, $http) {
+	console.log("BRO")
+	$http({method: 'GET', url: '/users'}).
+    success(function(data, status, headers, config) {
+      $scope.items = data;
+      // when the response is available
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
+}]);
 
-	// The data model. These items would normally be requested via AJAX,
-	// but are hardcoded here for simplicity. See the next example for
-	// tips on using AJAX.
+// function InstantSearchController($scope, User){
 
-	$scope.items = js;
+// 	// The data model. These items would normally be requested via AJAX,
+// 	// but are hardcoded here for simplicity. See the next example for
+// 	// tips on using AJAX.
+
+// 	var getUsers = function() {
+// 		User.query({}, function(data) {
+// 			$scope.items = data;
+// 		}, function(error) {
+// 			$scope.error = error;
+// 		})
+// 	};
+
+// 	getUsers();
 	
-}
+// }
