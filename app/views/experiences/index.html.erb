@@ -34,21 +34,13 @@
 				<%=submit_tag :submit %>
 			<% end %>
 		</div>
-		<% i = 1 %>
 		<% @users.each do |user| %>
-		<% if !@experiences.where(:datee_id => i).first.nil?  %>
-		
-		<% if @experiences.where(:datee_id => i).first.datee_id == user.id  %>
 			 
-				<br>
-				<%= image_tag user.photo.url (:small)%>
-				<h4><%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %></h4>
-				<br>
-				
-			<% end -%>
-			 
-		<% end -%>
-		 	 <% i += 1 %>
+			<br>
+			<%= image_tag user.photo.url (:small) rescue "" %>
+			<h4><%= link_to user.fname, new_experience_path(user_id: user.id, fname: user.fname) %></h4>
+			<br>
+	
 	<% end -%>
 
 	</div>

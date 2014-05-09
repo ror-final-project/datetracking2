@@ -1,7 +1,18 @@
 class ExperiencesController < ApplicationController
   def index
-    @experiences = current_user.experiences
+    @experiences = Experience.where("user_id = ? OR datee_id = ?", current_user.id, current_user.id)
+     
     @users = User.all
+
+
+    @users = []
+    @experiences.each do |experience|
+      user = experience.user_id == current_user.id ? experience.datee : experience.user 
+      
+    
+      @users.push user
+    end
+    @users.uniq!
     #debugger
   end
 
