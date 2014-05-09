@@ -139,7 +139,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
-  debugger
+  debugger (~> 1.6.6)
   gon
   jbuilder (~> 1.2)
   jquery-rails

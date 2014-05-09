@@ -46,7 +46,7 @@ end
 gem 'bcrypt', '~> 3.1.7'
 
 
-gem 'debugger'
+gem 'debugger', '~> 1.6.6'
 
 gem 'gon'
 # Use unicorn as the app server
